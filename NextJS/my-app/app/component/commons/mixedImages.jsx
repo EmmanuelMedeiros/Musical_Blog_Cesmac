@@ -4,11 +4,30 @@ import audio_software from '../../assets/audio_software.jpg'
 import eletronic_comp from '../../assets/eletronic_comp.jpg'
 import guy_with_a_guitar from '../../assets/guy_with_a_guitar.jpg'
 
+import { useSpring, animated } from '@react-spring/web'
+
 import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
 
 export default function MixedImages(props) {
+
+    const [springs, api] = useSpring(() => ({
+        from: {x: 0}
+    }))
+
+    const onHoverAnimate = () => {
+
+        api.start({
+            from: {
+                x: 0,
+            },
+            to: {
+                x: 100
+            }
+        })
+    }
+
 
     const [imageAWidth, setImageAWidth] = useState([300, false])
     const [imageBWidth, setimageBWidth] = useState([300, false])
@@ -62,6 +81,8 @@ export default function MixedImages(props) {
                         }
                     </div>
 
+
+
                     <div
                         onMouseOver={onMouseOverImgB}
                         onMouseLeave={onMouseLeaveImg} 
@@ -70,7 +91,7 @@ export default function MixedImages(props) {
                             src={eletronic_comp}
                             width={imageBWidth[0]}
                             placeholder='blur'
-                            className={`rounded-3xl delay-200 ease-in-out duration-300 ${ imageBWidth[1] ? 'h-[29rem] translate-y-3' : ''} ${imageAWidth[1] || imageCWidth[1] ? 'blur-sm' : ''}`}
+                            className={`rounded-3xl delay-200 ease-in-out duration-300 ${ imageBWidth[1] ? 'h-[29rem] translate-y-3' : ''} ${imageCWidth[1] || imageAWidth[1] ? 'blur-sm' : ''}`}
                         />
 
                         {imageAWidth[1] || imageCWidth[1]? 
@@ -81,6 +102,7 @@ export default function MixedImages(props) {
                             <h1 className='ease-in-out delay-300 duration-500 opacity-100 absolute my-72 -ml-7 w-60 text-3xl text-white text-left'>Tecnologia musical</h1>
                         }
                     </div>
+
 
                     <div
                         onMouseOver={onMouseOverImgC}
