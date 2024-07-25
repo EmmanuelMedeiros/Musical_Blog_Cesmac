@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@next/font": "^14.2.5",
     "@react-spring/web": "^9.7.3",
     "next": "14.2.5",

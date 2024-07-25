@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    place-content: center;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 55rem;
+    height: 30rem;
+    margin: auto;
+    transition: all 400ms;
+    gap: 1rem;
+}
+
+.container:hover .box {
+    filter: grayscale(100%) opacity(24%);
+    transition: all 400ms
+}
+
+.container .box:hover {
+    filter: grayscale(0%) opacity(100%);
+}
+
+.container:has(.box-1:hover) {
+    grid-template-columns: 2fr 1fr 1fr; 
+}
+
+.container:has(.box-2:hover) {
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.container:has(.box-3:hover) {
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.box-1 {
+    background: url(../assets/audio_software.jpg);
+}
+
+.box-2 {
+    background: url(../assets/eletronic_comp.jpg);
+}
+
+.box-3 {
+    background: url(../assets/guy_with_a_guitar.jpg);
+}
+
+.box {
+    position: relative;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+
+    border-radius: 1rem;
+
+    transition: all 400ms
+}

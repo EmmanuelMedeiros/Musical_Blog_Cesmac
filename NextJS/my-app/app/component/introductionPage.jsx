@@ -1,5 +1,4 @@
 import AnimatedImages from "./commons/animatedImgs";
-import MixedImages from "./commons/mixedImages";
 import { Kodchasan } from "next/font/google";
 
 export default function IntroductionPage() {
