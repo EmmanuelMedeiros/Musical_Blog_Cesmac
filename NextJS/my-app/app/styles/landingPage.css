@@ -150,7 +150,19 @@ body {
     }
     
     .container:has(.box-2:hover) {
-        grid-template-columns: 1fr 2fr 1fr;
+        width: 20rem;
+
+        > .box-1 {
+            width: 18rem;
+            transition: all 400ms;
+            margin-inline: auto;
+        }
+
+        > .box-3 {
+            width: 18rem;
+            transition: all 400ms;
+            margin-inline: auto;
+        }
     }
     
     .container:has(.box-2:hover) .box-2 p {
@@ -163,7 +175,19 @@ body {
     }
     
     .container:has(.box-3:hover) {
-        grid-template-columns: 1fr 1fr 2fr;
+        width: 20rem;
+
+        > .box-1 {
+            width: 18rem;
+            transition: all 400ms;
+            margin-inline: auto;
+        }
+
+        > .box-2 {
+            width: 18rem;
+            transition: all 400ms;
+            margin-inline: auto;
+        }
     }
     
     .container:has(.box-3:hover) .box-3 p {
