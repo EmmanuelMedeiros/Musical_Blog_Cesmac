@@ -24,7 +24,7 @@ body {
 }
 
 .container:hover .box {
-    filter: grayscale(100%) opacity(24%);
+    filter: opacity(97%) blur(.5rem);
     transition: all 400ms
 }
 
@@ -36,12 +36,39 @@ body {
     grid-template-columns: 2fr 1fr 1fr; 
 }
 
+.container:has(.box-1:hover) .box-1 p {
+    font-size: 2rem;
+    width: max-content;
+    text-align: center;
+    margin-inline: auto;
+
+    transition: all 200ms;
+}
+
 .container:has(.box-2:hover) {
     grid-template-columns: 1fr 2fr 1fr;
 }
 
+.container:has(.box-2:hover) .box-2 p {
+    font-size: 2rem;
+    width: max-content;
+    text-align: center;
+    margin-inline: auto;
+
+    transition: all 200ms;
+}
+
 .container:has(.box-3:hover) {
     grid-template-columns: 1fr 1fr 2fr;
+}
+
+.container:has(.box-3:hover) .box-3 p {
+    font-size: 2rem;
+    width: max-content;
+    text-align: center;
+    margin-inline: auto;
+
+    transition: all 200ms;
 }
 
 .box-1 {
@@ -56,6 +83,14 @@ body {
     background: url(../assets/guy_with_a_guitar.jpg);
 }
 
+.box p {
+    color: white;
+    margin-top: 10rem;
+    margin-left: -2rem;
+    width: 10rem;
+    font-size: 1.5rem;
+}
+
 .box {
     position: relative;
     background-size: cover;
@@ -67,4 +102,8 @@ body {
     border-radius: 1rem;
 
     transition: all 400ms
+}
+
+.box:hover {
+    cursor: pointer;
 }

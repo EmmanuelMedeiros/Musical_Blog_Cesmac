@@ -9,11 +9,17 @@ export default function LandingPage() {
     return(
         <div>
             <div className="container">
-                <div className="box box-1"></div>
+                <div className="box box-1">
+                    <p>Audio Software</p>
+                </div>
 
-                <div className='box box-2'></div>
+                <div className='box box-2'>
+                    <p>Tecnologia Musical</p>
+                </div>
 
-                <div className='box box-3'></div>
+                <div className='box box-3'>
+                    <p>Composição Eletrônica</p>
+                </div>
             </div>
         </div>
     )
