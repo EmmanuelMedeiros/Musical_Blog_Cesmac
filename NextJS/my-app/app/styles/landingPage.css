@@ -16,7 +16,7 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 55rem;
+    width: 40rem;
     height: 30rem;
     margin: auto;
     transition: all 400ms;
@@ -98,7 +98,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 50vh;
-
     border-radius: 1rem;
 
     transition: all 400ms
@@ -106,4 +105,73 @@ body {
 
 .box:hover {
     cursor: pointer;
+}
+
+@media (width <= 780px) {
+
+    * {
+        overflow-y: scroll;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 15rem;
+        height: 70rem;
+        margin: auto;
+        transition: all 400ms;
+        gap: 1rem;
+    }
+    
+    .container:has(.box-1:hover) { 
+        width: 20rem;
+        
+        > .box-2 {
+            width: 18rem;
+            transition: all 400ms;
+            margin-inline: auto;
+        }
+
+        > .box-3 {
+            width: 18rem;
+            transition: all 400ms;
+            margin-inline: auto;
+        }
+    }
+    
+    .container:has(.box-1:hover) .box-1 p {
+        font-size: 2rem;
+        width: max-content;
+        text-align: center;
+        margin-inline: auto;
+    
+        transition: all 200ms;
+    }
+    
+    .container:has(.box-2:hover) {
+        grid-template-columns: 1fr 2fr 1fr;
+    }
+    
+    .container:has(.box-2:hover) .box-2 p {
+        font-size: 2rem;
+        width: max-content;
+        text-align: center;
+        margin-inline: auto;
+    
+        transition: all 200ms;
+    }
+    
+    .container:has(.box-3:hover) {
+        grid-template-columns: 1fr 1fr 2fr;
+    }
+    
+    .container:has(.box-3:hover) .box-3 p {
+        font-size: 2rem;
+        width: max-content;
+        text-align: center;
+        margin-inline: auto;
+    
+        transition: all 200ms;
+    }
 }

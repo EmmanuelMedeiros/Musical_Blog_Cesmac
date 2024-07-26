@@ -8,6 +8,7 @@ import '../styles/landingPage.css'
 export default function LandingPage() {
     return(
         <div>
+            <h1 className='text-center mb-2 text-white text-2xl tracking-wider'>Por onde quer começar a estudar?</h1>
             <div className="container">
                 <div className="box box-1">
                     <p>Audio Software</p>
