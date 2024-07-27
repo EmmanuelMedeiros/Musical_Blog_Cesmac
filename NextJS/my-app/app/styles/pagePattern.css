@@ -1,0 +1,44 @@
+:root {
+    --text-color: '#181818';
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+body {
+    margin-top: 1rem;
+
+}
+
+h1 {
+    color: var(--text-color);
+}
+
+.container #logo_text {
+    position: absolute;
+    left: 2rem;
+    top: 1rem;
+    font-size: 1.5rem;
+}
+
+.container .header {
+    width: 100vw;
+}
+
+
+.container input#search {    
+    width: 50vw;
+    height: 3rem;
+    margin-inline: auto;
+    display: block;
+    border-radius: .3rem;
+    padding-left: 1rem;
+    margin-top: 1vh;
+
+    border: solid black 1px
+}
