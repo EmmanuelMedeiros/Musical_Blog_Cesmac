@@ -1,3 +1,6 @@
+import Link from 'next/link'
+
+
 export default function PagePattern() {
 
     const colors = {
@@ -21,8 +24,9 @@ export default function PagePattern() {
             <div className="container">
 
                 <div className="header">
-                    
-                    <h1 id="logo_text">CesMusic</h1>
+                    <Link href="/">
+                        <h1 id="logo_text">CesMusic</h1>
+                    </Link>
 
                     <input 
                         type="text" 

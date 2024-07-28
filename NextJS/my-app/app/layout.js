@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-
 import { Kodchasan } from 'next/font/google'
 
 const kodchasan = Kodchasan ({

@@ -1,5 +1,6 @@
 import { Kodchasan } from 'next/font/google'
 import LandingPage from "./component/landingPage"
+import './styles/reset.css'
 
 const kodchasan = Kodchasan ({
   subsets: ['latin'],
