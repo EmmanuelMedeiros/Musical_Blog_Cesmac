@@ -26,7 +26,8 @@ export default function PagePattern() {
             omnis ad quod nulla! Culpa, sit.`,
             imagePreview: 'img',
             postOwner: 'nome sobrenome',
-            createdAt: '28/07/2024'
+            createdAt: '28/07/2024',
+            id: 1
         },
         {
             title: 'TítuloB',
@@ -35,7 +36,8 @@ export default function PagePattern() {
             `,
             imagePreview: 'img',
             postOwner: 'teste dois da silva',
-            createdAt: '28/07/2024'
+            createdAt: '28/07/2024',
+            id: 2
         }
     ]
 
@@ -66,14 +68,14 @@ export default function PagePattern() {
                 </div>
 
                 {postList.map((element) => (
-                    <div className="post">
+                    <div className="post" key={element.id}>
 
-                        <div className="title_and_text">
+                        <div  className="title_and_text">
                             <h1 className='font-semibold'>{element.title}</h1>
                             <p>{element.textPreview}</p>
                         </div>
 
-                        <div className="info_bellow">
+                        <div  className="info_bellow">
                             <button>
                                 <p>Acessar Publicação</p>
                             </button>
