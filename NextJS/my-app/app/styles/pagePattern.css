@@ -1,3 +1,9 @@
+.container #not_show {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
 :root {
     --text-color: '#181818';
     --post-button-collor: grey;
@@ -92,6 +98,8 @@ body {
     flex-direction: column; 
     text-wrap: wrap;
 
+    padding: 3rem;
+
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
@@ -100,7 +108,7 @@ body {
     content: "";
     display: block;
 
-    width: 100vw;
+    width: 100%;
     height: .07rem;
     margin-top: 1rem;
 

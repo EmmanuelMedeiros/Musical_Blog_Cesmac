@@ -8,7 +8,7 @@ import { CiPlay1 } from "react-icons/ci";
 import { useEffect, useState } from 'react';
 
 
-export default function PagePattern() {
+export default function PagePattern(props) {
 
     const [reloadPage, setReloadPage] = useState(true)
 
@@ -40,6 +40,10 @@ export default function PagePattern() {
             id: 2
         }
     ]
+
+    useEffect(() => {
+        console.log(props.loading)
+    }, [])
 
 
     return(

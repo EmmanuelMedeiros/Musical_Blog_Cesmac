@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import PagePattern from '../../component/pagePattern'
-import { useRouter, useState } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+
+import '../../styles/loading.css'
 
 export default function AudioSoftwarePage(params) {
-
-    //const [reloadPage, setReloadPage] = useState()
 
     const router = useRouter()
 
@@ -18,11 +18,10 @@ export default function AudioSoftwarePage(params) {
             router.push('/audio_software/post?page=1')
         }
     
-    })
-
+    }, [])
 
     return(
-        <div >
+        <div>            
             <PagePattern/>
         </div>
     )
