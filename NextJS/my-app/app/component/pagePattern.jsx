@@ -8,12 +8,15 @@ import { CiPlay1 } from "react-icons/ci";
 import { useEffect, useState } from 'react';
 
 
+
 export default function PagePattern(props) {
 
     const [reloadPage, setReloadPage] = useState(true)
 
-    const colors = {
-        text: 'yellow'
+    const pageStyle = {
+        "--logo-gradient": props.linearGradient,
+        "--details-color-a": props.detailsColorA,
+        "--details-color-b": props.detailsColorB
     }
     
 
@@ -45,15 +48,17 @@ export default function PagePattern(props) {
         console.log(props.loading)
     }, [])
 
-
     return(
         <div>
-            <div className="container">
+            <div className="container" 
+                style={pageStyle}>
 
-                <div className="header">
+                <div className="header" >
                     <Link href="/">
                         <h1 id="logo_text" className='font-semibold'>CesMusic</h1>
                     </Link>
+
+                    <h2>🤘Olá!</h2>
 
                     <div className="input_block">
                         <input 
@@ -71,8 +76,8 @@ export default function PagePattern(props) {
 
                 </div>
 
-                {postList.map((element) => (
-                    <div className="post" key={element.id}>
+                {postList.map((element, index) => (
+                    <div className={`post ${index % 2 == 0 ? 'postA' : 'postB'}`} key={element.id}>
 
                         <div  className="title_and_text">
                             <h1 className='font-semibold'>{element.title}</h1>

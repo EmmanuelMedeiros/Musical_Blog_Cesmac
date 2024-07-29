@@ -22,7 +22,11 @@ export default function AudioSoftwarePage(params) {
 
     return(
         <div>            
-            <PagePattern/>
+            <PagePattern 
+                linearGradient='linear-gradient(45deg, #D870DA, #44B6D5, #6BD167)'
+                detailsColorA='#4EBDBA'
+                detailsColorB='#D870DA'
+            />
         </div>
     )
 }
