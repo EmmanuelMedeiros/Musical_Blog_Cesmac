@@ -14,7 +14,7 @@ export default function AudioSoftwarePage(params) {
         if(params.searchParams.reload == 'true') {
             setTimeout(() => {
                 window.location.reload()
-            }, 100)
+            }, 600)
             router.push('/audio_software/post?page=1')
         }
     
