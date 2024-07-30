@@ -10,6 +10,7 @@ body {
     display: grid;
     min-height: 100%;
     max-width: 100vh;
+
 }
 
 .container {
@@ -102,7 +103,9 @@ body {
     height: 50vh;
     border-radius: 1rem;
 
-    transition: all 400ms
+    transition: all 400ms;
+
+    overflow-y: hidden;
 }
 
 .box:hover {
@@ -110,6 +113,10 @@ body {
 }
 
 @media (width <= 780px) {
+
+    .container box {
+        overflow-y: hidden;
+    }
 
     .container {
         position: relative;
@@ -123,20 +130,20 @@ body {
 
         overflow-y: hidden;
     }
+
+    .container .box-1 {
+        overflow-y: hidden;
+    }
+
     
     .container:has(.box-1:hover) { 
-        width: 20rem;
         
         > .box-2 {
-            width: 18rem;
-            transition: all 400ms;
-            margin-inline: auto;
+            opacity: 100%;
         }
 
         > .box-3 {
-            width: 18rem;
-            transition: all 400ms;
-            margin-inline: auto;
+            opacity: 100%;
         }
     }
     
@@ -150,18 +157,13 @@ body {
     }
     
     .container:has(.box-2:hover) {
-        width: 20rem;
 
         > .box-1 {
-            width: 18rem;
-            transition: all 400ms;
-            margin-inline: auto;
+            opacity: 100%;
         }
 
         > .box-3 {
-            width: 18rem;
-            transition: all 400ms;
-            margin-inline: auto;
+            opacity: 100%;
         }
     }
     
@@ -175,18 +177,12 @@ body {
     }
     
     .container:has(.box-3:hover) {
-        width: 20rem;
-
         > .box-1 {
-            width: 18rem;
-            transition: all 400ms;
-            margin-inline: auto;
+            opacity: 100%;
         }
 
         > .box-2 {
-            width: 18rem;
-            transition: all 400ms;
-            margin-inline: auto;
+            opacity: 100%;
         }
     }
     

@@ -14,7 +14,7 @@ export default function LandingPage() {
         <div>
             <h1 className='text-center mb-2 text-white text-2xl tracking-wider'>Por onde quer começar a estudar?</h1>
             <div className="container">
-                <Link href="/audio_software/post?page=1&reload=true">
+                <Link class='box-1' href="/audio_software/post?page=1&reload=true">
                     <div className="box box-1">
                         <p>Audio Software</p>
                     </div>
