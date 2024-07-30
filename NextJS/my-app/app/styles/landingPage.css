@@ -111,10 +111,6 @@ body {
 
 @media (width <= 780px) {
 
-    * {
-        overflow-y: scroll;
-    }
-
     .container {
         position: relative;
         display: flex;
@@ -124,6 +120,8 @@ body {
         margin: auto;
         transition: all 400ms;
         gap: 1rem;
+
+        overflow-y: hidden;
     }
     
     .container:has(.box-1:hover) { 
