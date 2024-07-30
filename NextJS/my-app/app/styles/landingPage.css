@@ -2,14 +2,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    overflow-y: hidden;
     overflow-x: hidden;
     place-content: center;
 }
 
 body {
     display: grid;
-    min-height: 100vh;
+    min-height: 100%;
+    max-width: 100vh;
 }
 
 .container {
@@ -21,6 +21,8 @@ body {
     margin: auto;
     transition: all 400ms;
     gap: 1rem;
+
+    overflow-y: hidden;
 }
 
 .container:hover .box {
