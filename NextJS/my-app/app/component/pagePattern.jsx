@@ -11,7 +11,11 @@ import { useEffect, useState } from 'react';
 
 export default function PagePattern(props) {
 
-    const [reloadPage, setReloadPage] = useState(true)
+    const [searching, setSearching] = useState(false)
+
+    const onHandleSearching = () => {
+        setSearching(true)
+    }
 
     const pageStyle = {
         "--logo-gradient": props.linearGradient,
@@ -41,6 +45,16 @@ export default function PagePattern(props) {
             postOwner: 'teste dois da silva',
             createdAt: '28/07/2024',
             id: 2
+        },
+        {
+            title: 'TítuloC',
+            textPreview: `Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Quasi labore quae, minima necessitatibus facere quaerat eum itaque 
+            dasd asd fasdf asd ei jdasw `,
+            imagePreview: 'img',
+            postOwner: 'teste três da silva',
+            createdAt: '28/07/2024',
+            id: 3
         }
     ]
 
@@ -51,9 +65,10 @@ export default function PagePattern(props) {
     return(
         <div>
             <div className="container" 
+                onClick={searching ? () => setSearching(false) : null}
                 style={pageStyle}>
 
-                <div className="header" >
+                <div className="header">
                     <Link href="/">
                         <h1 id="logo_text" className='font-semibold'>CesMusic</h1>
                     </Link>
@@ -62,14 +77,16 @@ export default function PagePattern(props) {
 
                     <div className="input_block">
                         <input 
+                            onClick={() => setSearching(true)}
                             type="text" 
                             name="search" 
                             id="search" 
                             placeholder="Pesquise alguma postagem aqui" 
                         />
-
+                        
                         <button>
-                            <CiPlay1 className='text-xl'/>
+                            <CiPlay1 id='play' className={`text-xl transition-all duration-500 ${searching ? 'show' : 'not-show'}`}/>
+                            <div id='circle' className={`${!searching ? 'show' : 'not-show'}`}></div>    
                         </button>
 
                     </div>
