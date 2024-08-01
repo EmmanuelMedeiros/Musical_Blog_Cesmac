@@ -1,8 +1,11 @@
+'use client'
+
 import audioSoftware from '../assets/audio_software.jpg' 
 import eletronicComp from '../assets/eletronic_comp.jpg' 
 import guyWithAGuitar from '../assets/guy_with_a_guitar.jpg' 
 
-const path = require('path')
+import { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 import Link from 'next/link'
 
@@ -10,15 +13,33 @@ import '../styles/landingPage.css'
 
 export default function LandingPage() {
 
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
+    const router = useRouter();
+
+    const onHandleGotoPage = () => {
+        if(screenWidth > 768) {
+            router.push('/audio_software/post?page=1&reload=true')
+        }
+    }
+
+    const handleScreenResize = () => {
+        setScreenWidth(window.innerWidth)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', handleScreenResize)        
+    }, [window.innerWidth])
+
+
     return(
         <div>
-            <h1 className='text-center mb-2 text-white text-2xl tracking-wider'>Por onde quer começar a estudar?</h1>
+            <h1 id='logo_text'>CesMusic</h1>
+            <h1 id='message_text' className='text-center text-white text-2xl tracking-wider'>Por onde quer começar a estudar?</h1>
             <div className="container">
-                <Link class='box-1' href="/audio_software/post?page=1&reload=true">
-                    <div className="box box-1">
+                    <div className="box box-1"
+                         onClick={onHandleGotoPage}>
                         <p>Audio Software</p>
                     </div>
-                </Link>
 
                 <div className='box box-2'>
                     <p>Tecnologia Musical</p>
