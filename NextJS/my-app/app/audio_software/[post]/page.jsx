@@ -20,6 +20,7 @@ export default function AudioSoftwarePage(params) {
     
     }, [])
 
+
     return(
         <div>            
             <PagePattern 
