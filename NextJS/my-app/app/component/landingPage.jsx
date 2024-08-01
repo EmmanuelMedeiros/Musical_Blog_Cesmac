@@ -1,7 +1,5 @@
 'use client'
 
-import useWindowDimensions from '../functions/windowDimension'
-
 import audioSoftware from '../assets/audio_software.jpg' 
 import eletronicComp from '../assets/eletronic_comp.jpg' 
 import guyWithAGuitar from '../assets/guy_with_a_guitar.jpg' 
@@ -16,11 +14,10 @@ import '../styles/landingPage.css'
 export default function LandingPage() {
 
     try {
-        const { screenHeight, screenWidth } = useWindowDimensions()
+        const [screenWidth, setScreenWidth] = useState(window.innerWidth)
     }catch(err) {
-        console.log(err)
+        null
     }
-
     const router = useRouter();
 
     const onHandleGotoPage = () => {
@@ -28,6 +25,19 @@ export default function LandingPage() {
             router.push('/audio_software/post?page=1&reload=true')
         }
     }
+
+    const handleScreenResize = () => {
+        setScreenWidth(window.innerWidth)
+    }
+
+    useEffect(() => {
+        try {
+            window.addEventListener('resize', handleScreenResize)      
+        } catch(err) {
+            
+        }
+    }, [])
+
 
     return(
         <div>
