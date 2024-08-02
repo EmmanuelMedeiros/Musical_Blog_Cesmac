@@ -13,11 +13,7 @@ import '../styles/landingPage.css'
 
 export default function LandingPage() {
 
-    try {
-        const [screenWidth, setScreenWidth] = useState(window.innerWidth)
-    }catch(err) {
-        null
-    }
+    const [screenWidth, setScreenWidth] = useState(0)
     const router = useRouter();
 
     const onHandleGotoPage = () => {
@@ -32,6 +28,7 @@ export default function LandingPage() {
 
     useEffect(() => {
         try {
+            setScreenWidth(window.innerWidth)
             window.addEventListener('resize', handleScreenResize)      
         } catch(err) {
             
