@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 
 import Link from 'next/link'
 
-import '../styles/landingPage.css'
+import styles from '../styles/landingPage.module.css'
 
 export default function LandingPage() {
 
@@ -18,7 +18,7 @@ export default function LandingPage() {
 
     const onHandleGotoPage = () => {
         if(screenWidth > 768) {
-            router.push('/audio_software/post?page=1&reload=true')
+            router.push('/audio_software/post?page=1')
         }
     }
 
@@ -38,19 +38,19 @@ export default function LandingPage() {
 
     return(
         <div>
-            <h1 id='logo_text'>CesMusic</h1>
-            <h1 id='message_text' className='text-center text-white text-2xl tracking-wider'>Por onde quer começar a estudar?</h1>
-            <div className="container">
-                    <div className="box box-1"
+            <h1 id={`${styles.logo_text}`}>CesMusic</h1>
+            <h1 id={`${styles.message_text}`} className='text-center text-white text-2xl tracking-wider'>Por onde quer começar a estudar?</h1>
+            <div className={`${styles.container}`}>
+                    <div className={`${styles.box} ${styles.box_1}`}
                          onClick={onHandleGotoPage}>
                         <p>Audio Software</p>
                     </div>
 
-                <div className='box box-2'>
+                <div className={`${styles.box} ${styles.box_2}`}>
                     <p>Tecnologia Musical</p>
                 </div>
 
-                <div className='box box-3'>
+                <div className={`${styles.box} ${styles.box_3}`}>
                     <p>Composição Eletrônica</p>
                 </div>
                 

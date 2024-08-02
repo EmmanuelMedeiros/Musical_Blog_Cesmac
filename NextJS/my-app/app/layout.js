@@ -3,7 +3,7 @@ import { Kodchasan } from 'next/font/google'
 
 import "./styles/reset.css"
 import "./globals.css";
-import "./styles/pagePattern.css"
+
 
 const kodchasan = Kodchasan ({
   subsets: ['latin'],

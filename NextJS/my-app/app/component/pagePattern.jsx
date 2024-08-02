@@ -1,28 +1,35 @@
 'use client'
 
 import Link from 'next/link'
-import '../styles/pagePattern.css'
 
 import Image from 'next/image'
 import { CiPlay1 } from "react-icons/ci";
 import { useEffect, useState } from 'react';
 
-
+import styles from '../styles/pagePattern.module.css'
 
 export default function PagePattern(props) {
 
     const [searching, setSearching] = useState(false)
 
-    const onHandleSearching = () => {
-        setSearching(true)
+    const onHandleSearching = (element) => {
+
+        console.log(element)
+
+        console.log(element.target.value)
+
+        if(element.target.value.trim() != "" && typeof element.target.value.trim() == "string") {
+            setSearching(true)
+        } else{
+            setSearching(false)
+        }
     }
 
     const pageStyle = {
         "--logo-gradient": props.linearGradient,
         "--details-color-a": props.detailsColorA,
         "--details-color-b": props.detailsColorB
-    }
-    
+    }    
 
     const postList = [
         {
@@ -64,29 +71,27 @@ export default function PagePattern(props) {
 
     return(
         <div>
-            <div className="container" 
-                onClick={searching ? () => setSearching(false) : null}
+            <div className={styles.container} 
                 style={pageStyle}>
-
-                <div className="header">
+                <div className={styles.header}>
                     <Link href="/">
-                        <h1 id="logo_text" className='font-semibold'>CesMusic</h1>
+                        <h1 id={styles.logo_text} className='font-semibold'>CesMusic</h1>
                     </Link>
 
                     <h2>🤘Olá!</h2>
 
-                    <div className="input_block">
+                    <div className={styles.input_block}>
                         <input 
-                            onClick={() => setSearching(true)}
+                            onChange={(element) => onHandleSearching(element)}
                             type="text" 
                             name="search" 
-                            id="search" 
+                            id={styles.search} 
                             placeholder="Pesquise alguma postagem aqui" 
                         />
                         
                         <button>
-                            <CiPlay1 id='play' className={`text-xl transition-all duration-500 ${searching ? 'show' : 'not-show'}`}/>
-                            <div id='circle' className={`${!searching ? 'show' : 'not-show'}`}></div>    
+                            <CiPlay1 id={styles.play} className={`text-xl transition-all duration-500 ${searching ? styles.show : styles.not_show}`}/>
+                            <div id={styles.circle} className={`${!searching ? styles.show : styles.not_show}`}></div>    
                         </button>
 
                     </div>
@@ -94,19 +99,19 @@ export default function PagePattern(props) {
                 </div>
 
                 {postList.map((element, index) => (
-                    <div className={`post ${index % 2 == 0 ? 'postA' : 'postB'}`} key={element.id}>
+                    <div className={`${styles.post} ${index % 2 == 0 ? styles.postA : styles.postB}`} key={element.id}>
 
-                        <div  className="title_and_text">
+                        <div  className={styles.title_and_text}>
                             <h1 className='font-semibold'>{element.title}</h1>
                             <p>{element.textPreview}</p>
                         </div>
 
-                        <div  className="info_bellow">
+                        <div  className={styles.info_bellow}>
                             <button>
                                 <p>Acessar Publicação</p>
                             </button>
 
-                            <p id='owner_name'>Post feito por {element.postOwner}</p>
+                            <p id={styles.owner_name}>Post feito por {element.postOwner}</p>
                         </div>
                         
                     </div>

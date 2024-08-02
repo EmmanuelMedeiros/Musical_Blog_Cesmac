@@ -1,16 +1,4 @@
-:root {
-    --button-text-color: 'white';
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-
-}
-
-body {
+.container {
     margin-top: 1rem;
     width: 100%;
     color: var(--general-text-color);
@@ -74,7 +62,7 @@ body {
     background: white;
 }
 
-.input_block #play.not-show {
+.input_block #play.not_show {
 
     position: absolute;
 
@@ -106,7 +94,7 @@ body {
     overflow-y: hidden;
 }
 
-#circle.not-show {
+#circle.not_show {
     display: absolute;
     width: 1rem;
     height: 1rem;
