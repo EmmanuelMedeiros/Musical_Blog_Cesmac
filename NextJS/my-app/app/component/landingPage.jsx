@@ -82,11 +82,15 @@ export default function LandingPage() {
                  :
                 "Por onde quer começar a estudar?"}
             </h1>
+
             <div className={`${styles.container}`}>
-                    <div className={`${styles.box} ${styles.box_1} ${activateBoxA ? styles.activated_box : null}`}
-                         onClick={onHandleGoToAudioSoftware}>
-                        <p>Audio Software</p>
-                    </div>
+
+            {activateBoxA ? <span onClick={onHandleExitGoTos} id={styles.close_box}>X</span> : null}
+                
+                <div className={`${styles.box} ${styles.box_1} ${activateBoxA ? styles.activated_box : null}`}
+                     onClick={onHandleGoToAudioSoftware}>
+                    <p>Audio Software</p>
+                </div>
 
                 <div id={styles.box_b} className={`${styles.box} ${styles.box_2}`}
                      onClick={onHandleGoToMusicalTec}>

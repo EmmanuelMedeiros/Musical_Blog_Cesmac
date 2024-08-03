@@ -149,13 +149,21 @@ h1#logo_text {
 
     .container {
         width: 90vw;
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+    }
+
+    .container .box_2 {
+        transition: all;
+        transition-delay: 500ms;
     }
 
     .container .box_1 {
         border-radius: 2rem;
 
         transition: all;
-        transition-duration: 500ms;
+        transition-duration: 1000ms;
     }
 
     .container .box {
@@ -187,31 +195,46 @@ h1#logo_text {
         font-size: 100%;
     }
 
+    .container:has(.box_1.activated_box) span#close_box {
 
-    .container:has(.box_1.activated_box) {    
+        position: fixed;
 
-        grid-template-columns: 1fr 1fr 1fr;
+        left: 80%;
+        top: 10%;
+
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .container:has(.box_1.activated_box){    
+
+        grid-template-columns: 1fr;
 
         width: 100vw;
         margin-top: 2rem;
 
-        transition-duration: 500ms;
+        transition-duration: 800ms;
         transition: all;
     }
 
     .container:has(.box_1.activated_box) .box_1{    
-
-        filter: grayscale(10%);
-
-        position: absolute;
+        
+        position: relative;
+        display: block;
 
         height: 29rem;
         width: 20rem;
-        left: 50%;
-        margin-left: -10rem;
+        margin: auto;
 
         transition: all;
-        transition-duration: 500ms;
+        transition-duration: 1000ms;
+
+        box-shadow: 5px 5px 10px #654166;
+    }
+
+    .container:has(.box_1.activated_box) .box_1 {
+        transform: translateX(0);
+        box-shadow: 5px 5px 10px #654166;
     }
 
     .container:has(.box_1.activated_box) .box_2 {
