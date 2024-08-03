@@ -1,4 +1,11 @@
 
+.everything {
+    background: url(../../public/introduction_background.png);
+
+    width: 100vw;
+    height: 100vh;
+}
+
 h1#logo_text {
     font-size: 2rem;
     color: white;
@@ -114,6 +121,17 @@ h1#logo_text {
 
 @media (width <= 780px) {
 
+    .background_a {
+
+        >#logo_text {
+            filter: blur(.2rem);
+        };
+
+    }
+
+    .background_a {
+        background: url('../assets/audio_software.jpg');
+    }
 
     h1#logo_text {
 
@@ -135,6 +153,9 @@ h1#logo_text {
 
     .container .box_1 {
         border-radius: 2rem;
+
+        transition: all;
+        transition-duration: 500ms;
     }
 
     .container .box {
@@ -153,39 +174,55 @@ h1#logo_text {
         grid-template-columns: 1fr 1fr 1fr; 
     }
     
-    .container:has(.box_1:hover) .box_1 p {
-        font-size: 2rem;
-        width: max-content;
-        text-align: center;
-        margin-inline: auto;
-    
-        transition: all 200ms;
-    }
     
     .container:has(.box_2:hover) {
         grid-template-columns: 1fr 1fr 1fr;
     }
-    
-    .container:has(.box_2:hover) .box_2 p {
-        font-size: 2rem;
-        width: max-content;
-        text-align: center;
-        margin-inline: auto;
-    
-        transition: all 200ms;
-    }
-    
+
     .container:has(.box_3:hover) {
         grid-template-columns: 1fr 1fr 1fr;
     }
     
-    .container:has(.box_3:hover) .box_3 p {
-        font-size: 2rem;
-        width: max-content;
-        text-align: center;
-        margin-inline: auto;
+    .container:has(.box_2:hover) .box_2 p {
+        font-size: 100%;
+    }
+
+
+    .container:has(.box_1.activated_box) {    
+
+        grid-template-columns: 1fr 1fr 1fr;
+
+        width: 100vw;
+        margin-top: 2rem;
+
+        transition-duration: 500ms;
+        transition: all;
+    }
+
+    .container:has(.box_1.activated_box) .box_1{    
+
+        filter: grayscale(10%);
+
+        position: absolute;
+
+        height: 29rem;
+        width: 20rem;
+        left: 50%;
+        margin-left: -10rem;
+
+        transition: all;
+        transition-duration: 500ms;
+    }
+
+    .container:has(.box_1.activated_box) .box_2 {
+        visibility: hidden;
+        display: none;
+    }
     
-        transition: all 200ms;
+
+    .container:has(.box_1.activated_box) .box_3 {
+        visibility: hidden;
+        display: none;
     }
     
 }

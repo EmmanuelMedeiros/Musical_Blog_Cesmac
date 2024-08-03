@@ -13,13 +13,38 @@ import styles from '../styles/landingPage.module.css'
 
 export default function LandingPage() {
 
+    const [activateBoxA, setActivateBoxA] = useState(false)
+    const [activateBoxB, setActivateBoxB] = useState(false)
+    const [activateBoxC, setActivateBoxC] = useState(false)
+
+
     const [screenWidth, setScreenWidth] = useState(0)
     const router = useRouter();
 
-    const onHandleGotoPage = () => {
+    const onHandleGoToAudioSoftware = () => {
+        if(screenWidth > 768 || activateBoxA) {
+            router.push('/audio_software/post?page=1')
+        } else {
+            setActivateBoxA(true)
+        }
+    }
+
+    const onHandleGoToMusicalTec = () => {
         if(screenWidth > 768) {
             router.push('/audio_software/post?page=1')
         }
+    }
+
+    const onHandleGoToEletronicComp = () => {
+        if(screenWidth > 768) {
+            router.push('/audio_software/post?page=1')
+        }
+    }
+
+    const onHandleExitGoTos = () => {
+        setActivateBoxA(false)
+        setActivateBoxB(false)
+        setActivateBoxC(false)
     }
 
     const handleScreenResize = () => {
@@ -35,26 +60,50 @@ export default function LandingPage() {
         }
     }, [])
 
+    useEffect(() => {
+        if(screenWidth > 768) {
+            onHandleExitGoTos
+        }
+    }, [screenWidth])
+
 
     return(
-        <div>
+        <div className={`${styles.everything} 
+        ${activateBoxA ? styles.background_a : null}`}>
             <h1 id={`${styles.logo_text}`}>CesMusic</h1>
-            <h1 id={`${styles.message_text}`} className='text-center text-white text-2xl tracking-wider'>Por onde quer começar a estudar?</h1>
+            <h1 
+                id={`${styles.message_text}`} 
+                className='text-center text-white text-2xl tracking-wider'>
+                {activateBoxA ? "Audio Software" 
+                 : 
+                activateBoxB ? "Tecnologia Musical" 
+                 :
+                activateBoxC ? "Composição Eletrônica" 
+                 :
+                "Por onde quer começar a estudar?"}
+            </h1>
             <div className={`${styles.container}`}>
-                    <div className={`${styles.box} ${styles.box_1}`}
-                         onClick={onHandleGotoPage}>
+                    <div className={`${styles.box} ${styles.box_1} ${activateBoxA ? styles.activated_box : null}`}
+                         onClick={onHandleGoToAudioSoftware}>
                         <p>Audio Software</p>
                     </div>
 
-                <div className={`${styles.box} ${styles.box_2}`}>
+                <div id={styles.box_b} className={`${styles.box} ${styles.box_2}`}
+                     onClick={onHandleGoToMusicalTec}>
                     <p>Tecnologia Musical</p>
                 </div>
 
-                <div className={`${styles.box} ${styles.box_3}`}>
+                <div className={`${styles.box} ${styles.box_3}`}
+                     onClick={onHandleGoToEletronicComp}>
                     <p>Composição Eletrônica</p>
                 </div>
                 
             </div>
+
+        <footer className='text-center -mb-8 pt-7 text-white'>
+            @2024 CesMusic
+        </footer>
+
         </div>
     )
 }

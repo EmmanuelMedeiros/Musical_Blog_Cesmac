@@ -14,7 +14,7 @@ export default function Home() {
 
   return(
     <>
-      <div className={`bg-[url('../public/introduction_background.png')] absolute top-0 w-full h-screen`}>        
+      <div >        
           <LandingPage/>
       </div>
     </>
