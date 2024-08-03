@@ -121,7 +121,9 @@ h1#logo_text {
 
 @media (width <= 780px) {
 
-    .background_a {
+    .background_a,
+    .background_b,
+    .background_c {
 
         >#logo_text {
             filter: blur(.2rem);
@@ -131,6 +133,17 @@ h1#logo_text {
 
     .background_a {
         background: url('../assets/audio_software.jpg');
+    }
+
+    .background_b {
+        background: url('../assets/eletronic_comp.jpg');
+    }
+
+    .background_c {
+        background: url('../assets/guy_with_a_guitar.jpg');
+        background-position: 195rem;
+
+        background-position-y: -260rem;
     }
 
     h1#logo_text {
@@ -149,7 +162,6 @@ h1#logo_text {
 
     .container {
         width: 90vw;
-
         grid-template-columns: 1fr 1fr 1fr;
 
     }
@@ -182,7 +194,6 @@ h1#logo_text {
         grid-template-columns: 1fr 1fr 1fr; 
     }
     
-    
     .container:has(.box_2:hover) {
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -195,18 +206,24 @@ h1#logo_text {
         font-size: 100%;
     }
 
-    .container:has(.box_1.activated_box) span#close_box {
-
+    .container:has(.box_1.activated_box) span#close_box,
+    .container:has(.box_2.activated_box) span#close_box,
+    .container:has(.box_3.activated_box) span#close_box{
+        
         position: fixed;
 
         left: 80%;
-        top: 10%;
+        top: 12%;
+
+        z-index: 1000;
 
         color: white;
         font-size: 1.5rem;
     }
 
-    .container:has(.box_1.activated_box){    
+    .container:has(.box_1.activated_box),
+    .container:has(.box_2.activated_box),
+    .container:has(.box_3.activated_box){    
 
         grid-template-columns: 1fr;
 
@@ -232,20 +249,68 @@ h1#logo_text {
         box-shadow: 5px 5px 10px #654166;
     }
 
-    .container:has(.box_1.activated_box) .box_1 {
-        transform: translateX(0);
-        box-shadow: 5px 5px 10px #654166;
+    .container:has(.box_2.activated_box) .box_2{    
+        
+        position: relative;
+        display: block;
+        
+        height: 29rem;
+        width: 20rem;
+        margin: auto;
+
+        transition: all;
+        transition-duration: 1000ms;
+
+        box-shadow: 5px 5px 10px #b6bcbd;
     }
 
-    .container:has(.box_1.activated_box) .box_2 {
-        visibility: hidden;
-        display: none;
+    .container:has(.box_3.activated_box) .box_3{    
+        
+        position: relative;
+        display: block;
+        
+        height: 29rem;
+        width: 20rem;
+        margin: auto;
+
+        transition: all;
+        transition-duration: 1000ms;
+
+        box-shadow: 5px 5px 10px #b6bcbd;
+    }
+
+    .container:has(.box_1.activated_box) {
+        >.box_2 {
+            visibility: hidden;
+            display: none;
+        };
+        >.box_3 {
+            visibility: hidden;
+            display: none;
+        }
+    }
+
+    .container:has(.box_2.activated_box) {
+        >.box_1 {
+            visibility: hidden;
+            display: none;
+        };
+        >.box_3 {
+            visibility: hidden;
+            display: none;
+        }
+    }
+
+    .container:has(.box_3.activated_box) {
+        >.box_1 {
+            visibility: hidden;
+            display: none;
+        };
+        >.box_2 {
+            visibility: hidden;
+            display: none;
+        }
     }
     
-
-    .container:has(.box_1.activated_box) .box_3 {
-        visibility: hidden;
-        display: none;
-    }
     
 }

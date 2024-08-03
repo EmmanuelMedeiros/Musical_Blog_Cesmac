@@ -30,14 +30,20 @@ export default function LandingPage() {
     }
 
     const onHandleGoToMusicalTec = () => {
-        if(screenWidth > 768) {
+        if(screenWidth > 768 || activateBoxB) {
             router.push('/audio_software/post?page=1')
+        }else {
+            setActivateBoxB(true)
         }
+
+        console.log("cai aqui")
     }
 
     const onHandleGoToEletronicComp = () => {
         if(screenWidth > 768) {
             router.push('/audio_software/post?page=1')
+        }else {
+            setActivateBoxC(true)
         }
     }
 
@@ -69,7 +75,13 @@ export default function LandingPage() {
 
     return(
         <div className={`${styles.everything} 
-        ${activateBoxA ? styles.background_a : null}`}>
+        ${activateBoxA ? styles.background_a 
+            :
+          activateBoxB ? styles.background_b
+            :
+          activateBoxC ? styles.background_c
+            :
+          null}`}>
             <h1 id={`${styles.logo_text}`}>CesMusic</h1>
             <h1 
                 id={`${styles.message_text}`} 
@@ -84,20 +96,19 @@ export default function LandingPage() {
             </h1>
 
             <div className={`${styles.container}`}>
-
-            {activateBoxA ? <span onClick={onHandleExitGoTos} id={styles.close_box}>X</span> : null}
+            {activateBoxA || activateBoxB || activateBoxC ? <span onClick={onHandleExitGoTos} id={styles.close_box}>X</span> : null}
                 
                 <div className={`${styles.box} ${styles.box_1} ${activateBoxA ? styles.activated_box : null}`}
                      onClick={onHandleGoToAudioSoftware}>
                     <p>Audio Software</p>
                 </div>
 
-                <div id={styles.box_b} className={`${styles.box} ${styles.box_2}`}
+                <div className={`${styles.box} ${styles.box_2} ${activateBoxB ? styles.activated_box : null}`}
                      onClick={onHandleGoToMusicalTec}>
                     <p>Tecnologia Musical</p>
                 </div>
 
-                <div className={`${styles.box} ${styles.box_3}`}
+                <div className={`${styles.box} ${styles.box_3} ${activateBoxC ? styles.activated_box : null}`}
                      onClick={onHandleGoToEletronicComp}>
                     <p>Composição Eletrônica</p>
                 </div>
