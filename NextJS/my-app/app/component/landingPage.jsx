@@ -17,6 +17,8 @@ export default function LandingPage() {
     const [activateBoxB, setActivateBoxB] = useState(false)
     const [activateBoxC, setActivateBoxC] = useState(false)
 
+    const [loading, setLoading] = useState(false)
+
 
     const [screenWidth, setScreenWidth] = useState(0)
     const router = useRouter();
@@ -25,23 +27,30 @@ export default function LandingPage() {
         if(screenWidth > 768 || activateBoxA) {
             router.push('/audio_software/post?page=1')
         } else {
-            setActivateBoxA(true)
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+                setActivateBoxA(true)
+            }, 1000)
         }
     }
 
+
+    useEffect(() => {
+        
+    })
+
     const onHandleGoToMusicalTec = () => {
         if(screenWidth > 768 || activateBoxB) {
-            router.push('/audio_software/post?page=1')
+            router.push('/musical_tec/post?page=1')
         }else {
             setActivateBoxB(true)
         }
-
-        console.log("cai aqui")
     }
 
     const onHandleGoToEletronicComp = () => {
         if(screenWidth > 768) {
-            router.push('/audio_software/post?page=1')
+            router.push('/musical_tec/post?page=1')
         }else {
             setActivateBoxC(true)
         }
@@ -74,7 +83,7 @@ export default function LandingPage() {
 
 
     return(
-        <div className={`${styles.everything} 
+        <div className={`${styles.everything} ${loading ? styles.loading : null}
         ${activateBoxA ? styles.background_a 
             :
           activateBoxB ? styles.background_b
@@ -84,9 +93,11 @@ export default function LandingPage() {
           null}`}>
             <h1 id={`${styles.logo_text}`}>CesMusic</h1>
             <h1 
-                id={`${styles.message_text}`} 
+                id={`${styles.message_text} ${loading ? styles.loading_text : null}`} 
                 className='text-center text-white text-2xl tracking-wider'>
-                {activateBoxA ? "Audio Software" 
+                {loading ? "Loading..." 
+                 :
+                activateBoxA ? "Audio Software" 
                  : 
                 activateBoxB ? "Tecnologia Musical" 
                  :

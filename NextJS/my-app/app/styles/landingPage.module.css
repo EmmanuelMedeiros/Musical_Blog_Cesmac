@@ -13,7 +13,9 @@ h1#logo_text {
     position: fixed;
 
     top: 1rem;
-    left: 2rem;
+    transform: translateX(2rem);
+
+    cursor: default;
 }
 
 .container {
@@ -120,6 +122,10 @@ h1#logo_text {
 }
 
 @media (width <= 780px) {
+
+    h1#logo_text {
+        transform: translateX(0rem);
+    }
 
     .background_a,
     .background_b,
@@ -276,7 +282,7 @@ h1#logo_text {
         transition: all;
         transition-duration: 1000ms;
 
-        box-shadow: 5px 5px 10px #b6bcbd;
+        box-shadow: 5px 5px 10px #E0EFED;
     }
 
     .container:has(.box_1.activated_box) {
@@ -312,5 +318,14 @@ h1#logo_text {
         }
     }
     
+
+    .loading {
+        >.container {
+            filter: blur(1rem)
+        };
+        >#message_text {
+            display: none;
+        };
+    }
     
 }

@@ -78,7 +78,7 @@ export default function PagePattern(props) {
                         <h1 id={styles.logo_text} className='font-semibold'>CesMusic</h1>
                     </Link>
 
-                    <h2>🤘Olá!</h2>
+                    <h2>{props.welcomeText}</h2>
 
                     <div className={styles.input_block}>
                         <input 

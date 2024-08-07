@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 
 import styles from '../../styles/pagePattern.module.css'
 
-export default function AudioSoftwarePage(params) {
+export default function MusicalTecnologyPage(params) {
 
     const [reload, setReload] = useState(true)
     const router = useRouter()
@@ -15,10 +15,10 @@ export default function AudioSoftwarePage(params) {
     return(
         <div>            
             <PagePattern
-                welcomeText="🤘Olá!"
-                linearGradient='linear-gradient(45deg, #D870DA, #44B6D5, #6BD167)'
-                detailsColorA='#4EBDBA'
-                detailsColorB='#D870DA'
+                welcomeText="🖐️ Tudo Bem?"
+                linearGradient='linear-gradient(45deg, #EBEBEB, #A8DAE2, #E75757)'
+                detailsColorA='#6AB8C5'
+                detailsColorB='#E75757'
             />
         </div>
     )
