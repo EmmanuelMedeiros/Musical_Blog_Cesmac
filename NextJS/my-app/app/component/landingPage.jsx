@@ -44,16 +44,15 @@ export default function LandingPage() {
         }
     }
 
-
-    useEffect(() => {
-        
-    })
-
     const onHandleGoToMusicalTec = () => {
         if(screenWidth > 768 || activateBoxB) {
             router.push('/musical_tec/post?page=1')
         }else {
-            setActivateBoxB(true)
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+                setActivateBoxB(true)
+            }, 1000)
         }
     }
 
@@ -61,7 +60,11 @@ export default function LandingPage() {
         if(screenWidth > 768) {
             router.push('/musical_tec/post?page=1')
         }else {
-            setActivateBoxC(true)
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+                setActivateBoxC(true)
+            }, 1000)
         }
     }
 
