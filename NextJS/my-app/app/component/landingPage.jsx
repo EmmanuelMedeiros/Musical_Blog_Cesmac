@@ -6,10 +6,19 @@ import guyWithAGuitar from '../assets/guy_with_a_guitar.jpg'
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Suspense } from 'react'
 
 import Link from 'next/link'
 
 import styles from '../styles/landingPage.module.css'
+
+async function loadingComponent() {
+    return(
+        <div>
+            <h1>Loading...</h1>
+        </div>
+    )
+}
 
 export default function LandingPage() {
 
@@ -106,6 +115,8 @@ export default function LandingPage() {
                 "Por onde quer começar a estudar?"}
             </h1>
 
+            <Suspense fallback={loadingComponent}>
+
             <div className={`${styles.container}`}>
             {activateBoxA || activateBoxB || activateBoxC ? <span onClick={onHandleExitGoTos} id={styles.close_box}>X</span> : null}
                 
@@ -125,6 +136,8 @@ export default function LandingPage() {
                 </div>
                 
             </div>
+
+            </Suspense>
 
         <footer className='text-center -mb-8 pt-7 text-white'>
             @2024 CesMusic
