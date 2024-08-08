@@ -40,7 +40,7 @@ export default function LandingPage() {
             setTimeout(() => {
                 setLoading(false)
                 setActivateBoxA(true)
-            }, 1000)
+            }, 200)
         }
     }
 
@@ -52,7 +52,7 @@ export default function LandingPage() {
             setTimeout(() => {
                 setLoading(false)
                 setActivateBoxB(true)
-            }, 1000)
+            }, 200)
         }
     }
 
@@ -64,7 +64,7 @@ export default function LandingPage() {
             setTimeout(() => {
                 setLoading(false)
                 setActivateBoxC(true)
-            }, 1000)
+            }, 200)
         }
     }
 

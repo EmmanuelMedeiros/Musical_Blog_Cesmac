@@ -123,13 +123,17 @@ h1#logo_text {
     cursor: pointer;
 }
 
-@media (width <= 1055px) {
+@media (width <= 1055px) and (width > 780px) {
     .everything {
         background-position-x: -30rem;
     }
 }
 
 @media (width <= 780px) {
+
+    .everything {
+        background-position-x: -40rem;
+    }
 
     h1#logo_text {
         transform: translateX(0rem);
