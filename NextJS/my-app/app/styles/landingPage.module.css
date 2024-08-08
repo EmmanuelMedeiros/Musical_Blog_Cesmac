@@ -1,8 +1,7 @@
-
-/* ../../public/introduction_background.png */
-
 .everything {
-    background: url(../assets/background-proposal-a.jpg);
+
+    background: url(../assets/some_image.svg);
+    background-position-y: -40rem;
 
     width: 100vw;
     height: 100vh;
@@ -122,6 +121,12 @@ h1#logo_text {
 
 .box:hover {
     cursor: pointer;
+}
+
+@media (width <= 1055px) {
+    .everything {
+        background-position-x: -30rem;
+    }
 }
 
 @media (width <= 780px) {
