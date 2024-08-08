@@ -4,7 +4,7 @@ export default function LoginPage() {
     return(
         <div>
             <CredentialPage 
-                register={false}
+                register={true}
             />
         </div>
     )
