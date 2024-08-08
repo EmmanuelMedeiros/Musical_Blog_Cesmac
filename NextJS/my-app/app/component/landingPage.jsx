@@ -106,7 +106,7 @@ export default function LandingPage() {
             <h1 id={`${styles.logo_text}`}>CesMusic</h1>
             <h1 
                 id={`${styles.message_text} ${loading ? styles.loading_text : null}`} 
-                className='text-center text-white text-2xl tracking-wider'>
+                className={`text-center text-white  text-2xl tracking-wider`}>
                 {loading ? "Loading..." 
                  :
                 activateBoxA ? "Audio Software" 
@@ -115,7 +115,7 @@ export default function LandingPage() {
                  :
                 activateBoxC ? "Composição Eletrônica" 
                  :
-                "Por onde quer começar a estudar?"}
+                "Por onde quer começar?"}
             </h1>
 
             <Suspense fallback={loadingComponent}>

@@ -1,6 +1,8 @@
 
+/* ../../public/introduction_background.png */
+
 .everything {
-    background: url(../../public/introduction_background.png);
+    background: url(../assets/background-proposal-a.jpg);
 
     width: 100vw;
     height: 100vh;
@@ -15,8 +17,9 @@ h1#logo_text {
     top: 1rem;
     transform: translateX(2rem);
 
-    cursor: default;
+    cursor: default;   
 }
+
 
 .container {
     position: relative;
