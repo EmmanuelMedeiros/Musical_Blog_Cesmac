@@ -57,8 +57,8 @@ export default function LandingPage() {
     }
 
     const onHandleGoToEletronicComp = () => {
-        if(screenWidth > 768) {
-            router.push('/musical_tec/post?page=1')
+        if(screenWidth > 768 || activateBoxC) {
+            router.push('/eletronic_composion/post?page=1')
         }else {
             setLoading(true)
             setTimeout(() => {
