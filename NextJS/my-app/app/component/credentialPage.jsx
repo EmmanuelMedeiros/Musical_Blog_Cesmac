@@ -39,8 +39,8 @@ export default function CredentialPage(props) {
             <h1 id={styles.logo_text}><Link href={'/'}>CesMusic</Link></h1>
 
             <form onSubmit={(data) => onHandleKeepRegisterData(data)} 
-            className={`${styles.credential_area} ${props.register ? styles.registrating : styles.registrating}`}>
-                <h1>{props.register ? "Faça seu registro" : "Entre na sua conta"}</h1>                
+            className={`${styles.credential_area} ${props.register ? styles.registrating : null}`}>
+                <h1 id={props.register ? styles.register_title : null}>{props.register ? "Faça seu registro" : "Entre na sua conta"}</h1>                
 
                 {props.register 
                     ?
