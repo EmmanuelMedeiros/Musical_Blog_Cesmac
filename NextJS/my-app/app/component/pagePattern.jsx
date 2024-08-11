@@ -2,8 +2,11 @@
 
 import Link from 'next/link'
 
-import Image from 'next/image'
+
 import { CiPlay1 } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+
+import Image from 'next/image'
 import { useEffect, useState } from 'react';
 
 import styles from '../styles/pagePattern.module.css'
@@ -111,7 +114,15 @@ export default function PagePattern(props) {
                                 <p>Acessar Publicação</p>
                             </button>
 
-                            <p id={styles.owner_name}>Post feito por {element.postOwner}</p>
+                            <div className={`${styles.likes_and_owner}`}>
+
+                                <div className={`flex flex-row-reverse ${styles.likes_div}`}>
+                                    <CiHeart id={styles.post_likes}/>
+                                    <p className='mt-[2rem]'>200</p>
+                                </div>
+
+                                <p id={styles.owner_name}>Post feito por {element.postOwner}</p>
+                            </div>
                         </div>
                         
                     </div>

@@ -194,9 +194,23 @@
     border-radius: .3rem;
 }
 
+.container .post .info_bellow #post_likes{
+
+    font-size: 1.5rem;
+    color: rgb(209, 70, 70);
+
+    margin-top: 2rem;
+
+}
+
 .container .post .info_bellow p#owner_name{
     margin-top: 2rem;
     font-size: .9rem;
+}
+
+.container .post .info_bellow .likes_and_owner {
+    display: flex;
+    gap: 1rem;
 }
 
 
@@ -261,6 +275,18 @@
         text-align: right;
 
         width: 9rem;
+    }
+
+    .container .post .info_bellow .likes_div{
+    
+        margin-bottom: -2rem;
+        margin-inline: auto;
+    
+    }
+
+    .container .post .info_bellow .likes_and_owner {
+        display: flex;
+        flex-direction: column;
     }
     
 }
