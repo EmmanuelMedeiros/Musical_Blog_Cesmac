@@ -47,10 +47,11 @@ export default function UserPage() {
 
             <div className={`${styles.middle_screen}`}>
                 {likedPosts.map((element, index) => (
+
                     <div key={index} className={`${styles.post}`}>
 
                         <div className={`${styles.title_and_text}`}>
-                            <h1 children="font-semibold">{element.title}</h1>
+                            <h1 className="font-semibold">{element.title}</h1>
                             <p>{element.contentPreview}</p>
                         </div>
 
