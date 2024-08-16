@@ -1,9 +1,14 @@
+'use client'
+
 import styles from '../styles/userPage.module.css'
 import stylesB from '../styles/pagePattern.module.css'
 
 import { CiUser } from "react-icons/ci";
 
+import { useState } from 'react';
+
 import Link from 'next/link'
+import Image from 'next/image'
 
 const likedPosts = [
     {
@@ -30,6 +35,9 @@ const likedPosts = [
 
 export default function UserPage() {
 
+    const [leftBarSelection, setLeftBarSelection] = useState(0)
+
+
     return (
         <div className={styles.container}>
 
@@ -41,31 +49,94 @@ export default function UserPage() {
             </div>
 
             <div className={`${styles.left_bar}`}>
-                <h2 className='hover:cursor-pointer'>Meus Posts</h2>
-                <h2 className='hover:cursor-pointer'>Posts Curtidos</h2>
+                <h2 onClick={() => setLeftBarSelection(0)} className={`hover:cursor-pointer ${leftBarSelection == 0 ? 'underline' : null}`}>Sobre mim</h2>
+
+                <h2 onClick={() => setLeftBarSelection(1)} className={`hover:cursor-pointer ${leftBarSelection == 1 ? 'underline' : null}`}>Meus posts</h2>
+
             </div>
 
-            <div className={`${styles.middle_screen}`}>
-                {likedPosts.map((element, index) => (
-
-                    <div key={index} className={`${styles.post}`}>
-
-                        <div className={`${styles.title_and_text}`}>
-                            <h1 className="font-semibold">{element.title}</h1>
-                            <p>{element.contentPreview}</p>
+            {leftBarSelection == 1 
+                ? 
+                    <div className={`${styles.middle_screen}`}>
+                    {likedPosts.map((element, index) => (
+    
+                        <div key={index} className={`${styles.post}`}>
+    
+                            <div className={`${styles.title_and_text}`}>
+                                <h1 className="font-semibold">{element.title}</h1>
+                                <p>{element.contentPreview}</p>
+                            </div>
+    
+                            <div className={styles.info_bellow}>
+                                <button>
+                                    <p>Acessar Publicação</p>
+                                </button>
+    
+                                <p id={styles.owner_name}>Data: {element.date}</p>
+                            </div>
+    
                         </div>
-
-                        <div className={styles.info_bellow}>
-                            <button>
-                                <p>Acessar Publicação</p>
-                            </button>
-
-                            <p id={styles.owner_name}>Data: {element.date}</p>
-                        </div>
-
+                        ))}
                     </div>
-                ))}
-            </div>
+                :
+                    <div className={`${styles.middle_screen} py-8 pl-6`}>
+
+                        
+                        <div className='flex justify-start gap-3'>
+                            <label htmlFor="name">
+                                <h1 className='w-20'>Nome: </h1>
+                            </label>
+                            <input 
+                                type="text" 
+                                name="" 
+                                id="" 
+                                readOnly={true} 
+                                value={"Emmanuel"}
+                                className='border-solid ml-2 border-gray-500 border-2 rounded-md px-3'
+                            />
+                        </div>
+
+                        <div className='flex justify-start gap-3 mt-5'>
+                            <label htmlFor="email">
+                                <h1 className='w-20'>Email: </h1>
+                            </label>
+                            <input 
+                                type="email" 
+                                name="email" 
+                                id="email" 
+                                readOnly={true} 
+                                value={"Emmanuel@hotmail.com"}
+                                className='border-solid ml-2 border-gray-500 border-2 rounded-md px-3'
+                            />
+                        </div>
+
+                        <div className='flex justify-start gap-3 mt-5'>
+                            <label htmlFor="password">
+                                <h1 className='w-20'>Senha: </h1>
+                            </label>
+                            <input 
+                                type="password" 
+                                name="password" 
+                                id="password" 
+                                readOnly={true} 
+                                value={"Minha senha"}
+                                className='border-solid ml-2 border-gray-500 border-2 rounded-md px-3'
+                            />
+                        </div>
+
+                        <div className='flex justify-start gap-3 mt-5'>
+                            <label htmlFor="about">
+                                <h1 className='w-20'>About: </h1>
+                            </label>
+                            <textarea
+                                value={"das dlaskdnj aslkdn askldj aslkdj aslkdj aslkdj aslkdj aslkdj alsçkdj alskdj aslkdj aslkdj as"}
+                                className='border-solid ml-2 border-gray-500 border-2 rounded-md px-3 h-[10rem] text-start'
+                            />
+                        </div>
+
+
+                    </div>}
+
 
         </div>
     )
