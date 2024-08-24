@@ -7,13 +7,14 @@ import { useState, useEffect } from 'react'
 
 export default function AuthCodePage(params) {
 
-    const [userParam, setUserParm] = useState(params)
+    const myParams = params
+
     const [message, setMessage] = useState("Ops!! Ocorreu algum erro aqui")
     const [success, setSuccess] = useState(0)
 
-    async function authenticateUser(userParam) {
+    async function authenticateUser(myParams) {
 
-        const userCode = userParam.searchParams.code
+        const userCode = myParams.searchParams.code
         console.log(userCode)
 
         const result = await axios.put(`https://api-cesmusic.onrender.com/auth/validate-login-code/${userCode}`)
@@ -34,9 +35,7 @@ export default function AuthCodePage(params) {
 
     
     useEffect(() => {
-        setTimeout(() => {
-            authenticateUser(userParam)
-        }, 3000)
+        authenticateUser(myParams)
     }, [])
 
     return(
