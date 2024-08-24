@@ -5,7 +5,7 @@ import axios from 'axios'
 
 import { useState, useEffect } from 'react'
 
-export default function AuthCodePage(params) {
+export default function AuthCodePage({params}) {
 
     const [userParam, setUserParm] = useState(params)
     const [message, setMessage] = useState("Ops!! Ocorreu algum erro aqui")
