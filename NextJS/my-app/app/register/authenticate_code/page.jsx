@@ -14,6 +14,7 @@ export default function AuthCodePage(params) {
     async function authenticateUser(userParam) {
 
         const userCode = userParam.searchParams.code
+        console.log(userCode)
 
         const result = await axios.put(`https://api-cesmusic.onrender.com/auth/validate-login-code/${userCode}`)
         .then((result) => {
