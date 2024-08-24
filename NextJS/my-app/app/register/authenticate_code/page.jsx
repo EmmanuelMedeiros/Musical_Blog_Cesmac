@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation'
 function AuthCodeContent() {
 
     const searchParams = useSearchParams()
-    const [message, setMessage] = useState("Ops!! Ocorreu algum erro aqui")
+    const [message, setMessage] = useState("Autenticando...")
     const [success, setSuccess] = useState(false)
 
     async function authenticateUser() {
@@ -28,7 +28,7 @@ function AuthCodeContent() {
             setSuccess(true)
         } catch (err) {
             console.log(err)
-            setMessage("Código inválido")
+            setMessage("Código inválido ou já usado")
             setSuccess(false)
         }
     }
@@ -39,7 +39,7 @@ function AuthCodeContent() {
 
     return (
         <div className={styles.container}>
-            <h1 className={`${success ? styles.success : styles.failure}`}>{message}</h1>
+            <h1 className={`${success ? styles.success : !success ? styles.failure : null}`}>{message}</h1>
         </div>
     )
 }
