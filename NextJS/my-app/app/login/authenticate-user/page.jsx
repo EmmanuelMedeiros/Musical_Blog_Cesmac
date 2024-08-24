@@ -9,10 +9,10 @@ function AuthCodeContent() {
 
     const searchParams = useSearchParams()
     const [message, setMessage] = useState("Autenticando...")
-    const [success, setSuccess] = useState(false)
+    const [success, setSuccess] = useState("")
 
     async function authenticateUser() {
-        const userCode = searchParams.get('code')
+        const userCode = searchParams.get('id')
         console.log(userCode)
 
         if (!userCode) {
@@ -22,7 +22,7 @@ function AuthCodeContent() {
         }
 
         try {
-            const result = await axios.put(`https://api-cesmusic.onrender.com/auth/validate-login-code/${userCode}`)
+            const result = await axios.put(`https://api-cesmusic.onrender.com/auth/activate/${userCode}`)
             console.log(result)
             setMessage("Você foi autenticado!!")
             setSuccess(true)
@@ -39,7 +39,7 @@ function AuthCodeContent() {
 
     return (
         <div className={styles.container}>
-            <h1 className={`${success ? styles.success : !success ? styles.failure : null}`}>{message}</h1>
+            <h1 className={`${success === true ? styles.success : success === false ? styles.failure : null}`}>{message}</h1>
         </div>
     )
 }
