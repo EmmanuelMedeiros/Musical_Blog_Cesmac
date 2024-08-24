@@ -2,43 +2,41 @@
 
 import styles from '../../styles/authCode.module.css'
 import axios from 'axios'
-
 import { useState, useEffect } from 'react'
+import { useSearchParams } from 'next/navigation'
 
-export default function AuthCodePage(params) {
-
-    const myParams = params
-
+export default function AuthCodePage() {
+    const searchParams = useSearchParams()
     const [message, setMessage] = useState("Ops!! Ocorreu algum erro aqui")
-    const [success, setSuccess] = useState(0)
+    const [success, setSuccess] = useState(false)
 
-    async function authenticateUser(myParams) {
-
-        const userCode = myParams.searchParams.code
+    async function authenticateUser() {
+        const userCode = searchParams.get('code')
         console.log(userCode)
 
-        const result = await axios.put(`https://api-cesmusic.onrender.com/auth/validate-login-code/${userCode}`)
-        .then((result) => {
+        if (!userCode) {
+            setMessage("Código não fornecido")
+            setSuccess(false)
+            return
+        }
+
+        try {
+            const result = await axios.put(`https://api-cesmusic.onrender.com/auth/validate-login-code/${userCode}`)
             console.log(result)
             setMessage("Você foi autenticado!!")
             setSuccess(true)
-        })
-        .catch((err) => {
+        } catch (err) {
             console.log(err)
             setMessage("Código inválido")
             setSuccess(false)
-        })
-
-        console.log(result)
-
+        }
     }
 
-    
     useEffect(() => {
-        authenticateUser(myParams)
+        authenticateUser()
     }, [])
 
-    return(
+    return (
         <div className={styles.container}>
             <h1 className={`${success ? styles.success : styles.failure}`}>{message}</h1>
         </div>
