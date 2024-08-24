@@ -37,6 +37,23 @@ export default function UserPage() {
 
     const [leftBarSelection, setLeftBarSelection] = useState(0)
 
+    const [nameReadOnly, setNameReadOnly] = useState(false) 
+    const [aboutReadOnly, setAboutReadOnly] = useState(false)
+
+
+    const nameInputWrite = () => {
+        nameReadOnly ? setNameReadOnly(false) : setNameReadOnly(true)
+        document.getElementById("name").focus()
+
+        const newName = document.getElementById("name").value
+    }
+
+    const aboutInputWrite = () => {
+        aboutReadOnly ? setAboutReadOnly(false) : setAboutReadOnly(true)
+        document.getElementById("about_user").focus()
+
+        const newName = document.getElementById("about_user").value
+    }
 
     return (
         <div className={styles.container}>
@@ -89,11 +106,17 @@ export default function UserPage() {
                             <input 
                                 type="text" 
                                 name="" 
-                                id="" 
-                                readOnly={true} 
-                                value={"Emmanuel"}
+                                id="name" 
+                                readOnly={false} 
+                                value={nameReadOnly ? null : "Emmanuel"}
                                 className='border-solid ml-2 border-gray-500 border-2 rounded-md px-3'
                             />
+
+                            <button  
+                                onClick={nameInputWrite}
+                                className="bg-slate-700 rounded-md px-4 text-white">
+                                    {nameReadOnly ? "Aplicar" : "Alterar"}
+                            </button>
                         </div>
 
                         <div className='flex justify-start gap-3 mt-5'>
@@ -129,9 +152,15 @@ export default function UserPage() {
                                 <h1 className='w-20'>About: </h1>
                             </label>
                             <textarea
-                                value={"das dlaskdnj aslkdn askldj aslkdj aslkdj aslkdj aslkdj aslkdj alsçkdj alskdj aslkdj aslkdj as"}
+                                id={"about_user"}
+                                value={aboutReadOnly ? null : "das dlaskdnj aslkdn askldj aslkdj aslkdj aslkdj aslkdj aslkdj alsçkdj alskdj aslkdj aslkdj as"}
                                 className='border-solid ml-2 border-gray-500 border-2 rounded-md px-3 h-[10rem] text-start'
                             />
+                            <button  
+                                onClick={aboutInputWrite}
+                                className="bg-slate-700 rounded-md px-4 h-8 my-auto text-white">
+                                    {aboutReadOnly ? "Aplicar" : "Alterar"}
+                            </button>
                         </div>
 
 

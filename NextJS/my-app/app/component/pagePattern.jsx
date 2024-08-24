@@ -116,11 +116,6 @@ export default function PagePattern(props) {
 
                             <div className={`${styles.likes_and_owner}`}>
 
-                                <div className={`flex flex-row-reverse ${styles.likes_div}`}>
-                                    <CiHeart id={styles.post_likes}/>
-                                    <p className='mt-[2rem]'>200</p>
-                                </div>
-
                                 <p id={styles.owner_name}>Post feito por {element.postOwner}</p>
                             </div>
                         </div>

@@ -142,3 +142,43 @@
     }
 
 }
+
+@media (width <= 768px) {
+
+    .container .header {
+        display: flex;
+        justify-content: space-around;
+
+        gap: 5rem;
+    }
+
+    .container .header h1 {
+        margin-left: 0rem;
+    }
+
+    .container .left_bar {    
+        display: flex;
+        flex-direction: column;
+    
+        position: fixed;
+    
+        gap: 2rem;
+    
+        justify-content: flex-start;
+        align-items: center;
+    
+        border-right: solid rgba(0, 0, 0, 0.103) 1px ;
+        padding-top: 2rem;
+        margin-top: 4rem;
+        top: 0;
+    
+        background: white;
+    
+        font-size: 1.2rem;
+    
+        width: 20%;
+        height: 100vh;
+    }
+
+
+}
